@@ -1,24 +1,9 @@
-<p>Jogador atual: {{jogador}}</p>
-<p>Vencedor: {{vencedor}} </p>
+<p *ngIf= "!vencedor">Jogador atual: {{jogador}}</p>
+<p *ngIf= "vencedor">Vencedor: {{vencedor}} </p>
 <p><button (click)="reinicia()">Reiniciar partida</button></p>
 <table>
-  <tr>
-    <td (click)="processarJogada(0, 0)">{{tabuleiro[0][0]}}</td>
-    <td (click)="processarJogada(0, 1)">{{tabuleiro[0][1]}}</td>
-    <td (click)="processarJogada(0, 2)">{{tabuleiro[0][2]}}</td>
+  <tr *ngFor = "let row of [0,1,2]">
+      <td *ngFor = "let col of [0,1,2]" (click)="processarJogada(row, col)">{{tabuleiro[row][col]}}</td>
   </tr>
-
-  <tr>
-    <td (click)="processarJogada(1, 0)">{{tabuleiro[1][0]}}</td>
-    <td (click)="processarJogada(1, 1)">{{tabuleiro[1][1]}}</td>
-    <td (click)="processarJogada(1, 2)">{{tabuleiro[1][2]}}</td>
-  </tr>
-
-  <tr>
-    <td (click)="processarJogada(2, 0)">{{tabuleiro[2][0]}}</td>
-    <td (click)="processarJogada(2, 1)">{{tabuleiro[2][1]}}</td>
-    <td (click)="processarJogada(2, 2)">{{tabuleiro[2][2]}}</td>
-  </tr>
-
 
 </table>
